@@ -24,6 +24,7 @@
 # can remove a single level from unsafe reports. How many reports are now
 # safe?
 
+
 def check_sign(num: int) -> int:
     if num > 0:
         return 1
@@ -36,7 +37,7 @@ def check_sign(num: int) -> int:
 def is_safe(report: list[int]) -> int:
     first_diff = check_sign(report[1] - report[0])
     for i in range(1, len(report)):
-        diff = report[i] - report[i-1]
+        diff = report[i] - report[i - 1]
         if abs(diff) > 3 or diff == 0 or check_sign(diff) != first_diff:
             return 0
     return 1
@@ -51,7 +52,6 @@ def is_safe_with_dampener(report: list[int]) -> int:
         if is_safe(report_copy):
             return 1
     return 0
-        
 
 
 count = 0
